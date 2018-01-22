@@ -43,7 +43,7 @@ Tree.prototype.map = function(callBack) {
 
   // Initialize a New Tree (We cannot Modify the Original)
   // Create New Tree using the New Construtor Function
-  var newTree = new Tree(root);
+  var newTree = new Tree();
 
   // Using Recursion, find the Initial Value and the Children Nodes Array
   var searchTree = function(newTree){
@@ -68,10 +68,6 @@ Tree.prototype.map = function(callBack) {
         // Push the Applied Callback values to the New Children Array for the Tree Copy
         this.children.push(searchTree(this.children));
       }
-
     }
-
   }
-
-
 };
