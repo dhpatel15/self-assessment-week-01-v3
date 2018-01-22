@@ -40,8 +40,12 @@ var Tree = function(value) {
 
 // Map Method
 Tree.prototype.map = function(callBack) {
+
   // Initialize a New Tree (We cannot Modify the Original)
-  var treeCopy = {};
+  var treeCopy = function(values){
+    this.newValue = values;
+    this.newChildren = [];
+  };
 
   // Using Recursion, find the Initial Value and the Children Nodes Array
   var searchTree = function(tree){
@@ -62,7 +66,8 @@ Tree.prototype.map = function(callBack) {
       // If the Node has a Children Array
       if(this.children.length > 0){
         // Use the Recursive searchTree Function to apply it to the Children Array
-        searchTree(this.children);
+        // Push the Applied Callback values to the New Children Array
+        this.newChildren.push(searchTree(this.children));
       }
 
     }
