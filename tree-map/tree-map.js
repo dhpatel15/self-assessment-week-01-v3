@@ -42,40 +42,36 @@ var Tree = function(value) {
 Tree.prototype.map = function(callBack) {
 
   // Initialize a New Tree (We cannot Modify the Original)
-  var treeCopy = function(values){
-    this.newValue = values;
-    this.newChildren = [];
-  };
+  // Create New Tree using the New Construtor Function
+  var newTree = new Tree(root);
 
   // Using Recursion, find the Initial Value and the Children Nodes Array
-  var searchTree = function(tree){
+  var searchTree = function(newTree){
 
     // BASE CASE
-    // Assign the New Value with the Call Back function to the newValue to the Tree Copy
-    this.newValue = callBack(this.value);
+    // Assign the New Value with the Call Back function to the value to the Tree Copy
+    this.value = callBack(this.value);
 
     // RECURSIVE CASE
     // Search throught the Nodes of the Tree
     for(var i = 0; i < this.children.length; i++){
 
-      // If the Node has a Value
+      // Check if the Node has a Value
       if(this.value !== undefined){
         // Apply the Call Back function to the Node's Value
-        this.newValue = callBack(value);
+        this.value = callBack(value);
       }
 
-      // If the Node has a Children Array
+      // Check if the Node has a Children Array
       if(this.children.length > 0){
         // Use the Recursive searchTree Function to apply it to the Children Array
         // Push the Applied Callback values to the New Children Array for the Tree Copy
-        this.newChildren.push(searchTree(this.children));
+        this.children.push(searchTree(this.children));
       }
 
     }
 
   }
 
-  // Return New Tree using the New Construtor Function
-  var newTree = new(treeCopy);
 
 };
