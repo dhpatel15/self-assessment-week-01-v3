@@ -67,6 +67,8 @@ Tree.prototype.map = function(callBack) {
         newTree.children.push(searchTree(this.children));
       }
     }
+    // Return the New Tree
+    return newTree;
   }
 };
 
