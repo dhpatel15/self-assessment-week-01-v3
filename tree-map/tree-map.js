@@ -53,8 +53,8 @@ Tree.prototype.map = function(callBack) {
     // Assign the New Value with the Call Back function to the value to the Tree Copy
     // Check if the Node has a Value
     if(this.value !== undefined){
-      // Apply the Call Back function to the Node's Value
-      this.value = callBack(this.value);
+      // Apply the Call Back function of the Node's Value to New Tree
+      newTree.value = callBack(this.value);
     }
 
     // RECURSIVE CASE
@@ -63,8 +63,8 @@ Tree.prototype.map = function(callBack) {
     if(this.children.length > 0){
       for(var i = 0; i < this.children.length; i++){
         // Use the Recursive searchTree Function to apply it to the Children Array
-        // Push the Applied Callback values to the New Children Array for the Tree Copy
-        this.children.push(searchTree(this.children));
+        // Push the Applied Callback values to the New Children Array to New Tree
+        newTree.children.push(searchTree(this.children));
       }
     }
   }
