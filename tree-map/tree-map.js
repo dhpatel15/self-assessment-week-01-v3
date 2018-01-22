@@ -47,7 +47,7 @@ Tree.prototype.map = function(callBack) {
 
   // Using Recursion, find the Initial Value and the Iterat through the Children Nodes Array
   // Apply the Recursion to the newly constructed Tree
-  var searchTree = function(root){
+  var searchTree = function(newTree){
 
     // BASE CASE
     // Assign the New Value with the Call Back function to the value to the Tree Copy
