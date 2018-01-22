@@ -43,10 +43,10 @@ Tree.prototype.map = function(callBack) {
 
   // Initialize a New Tree (We cannot Modify the Original)
   // Create New Tree using the New Construtor Function
-  var newTree = new Tree();
+  var root = new Tree('root');
 
   // Using Recursion, find the Initial Value and the Children Nodes Array
-  var searchTree = function(newTree){
+  var searchTree = function(root){
 
     // BASE CASE
     // Assign the New Value with the Call Back function to the value to the Tree Copy
@@ -71,3 +71,7 @@ Tree.prototype.map = function(callBack) {
     }
   }
 };
+
+
+// Mostly Complete: I believe the Recursive function works, but there seems to
+// be something wrong with the implementation of my constructor function
