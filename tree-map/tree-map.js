@@ -67,7 +67,8 @@ Tree.prototype.map = function(callBack) {
         newTree.children.push(searchTree(this.children));
       }
     }
-    // Return the New Tree
+    // Return the New Tree (The Interpretor does it for the original function,
+    // but does it do it within the Recursive case?)
     return newTree;
   }
 };
