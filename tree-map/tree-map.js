@@ -17,6 +17,8 @@
   *   var leaf5 = branch2.addChild(5);
   *   var leaf6 = branch3.addChild(6);
   *   var leaf7 = branch3.addChild(7);
+
+
   *   var newTree = root1.map(function (value) {
   *     return value * 2;
   *   })
@@ -28,10 +30,46 @@
   *  root1.value // still 1
   */
 
+
+
 var Tree = function(value) {
   this.value = value;
   this.children = [];
 };
 
 
+// Map Method
+Tree.prototype.map = function(callBack) {
+  // Initialize a New Tree (We cannot Modify the Original)
+  var treeCopy = {};
 
+  // Using Recursion, find the Initial Value and the Children Nodes Array
+  var searchTree = function(tree){
+
+    // BASE CASE
+    callBack(this.value);
+
+    // RECURSIVE CASE
+    // Search throught the Nodes of the Tree
+    for(var i = 0; i < this.children.length; i++){
+
+      // If the Node has a Value
+      if(this.value !=== undefined){
+        // Apply the Call Back function to the Node's Value
+        callBack(value);
+      }
+
+      // If the Node has a Children Array
+      if(this.children.length > 0){
+        // Use the Recursive searchTree Function to apply it to the Children Array
+        searchTree(this.children);
+      }
+
+    }
+
+  }
+
+  // Return New Tree using the New Construtor Function
+  var newTree = new(treeCopy);
+
+};
