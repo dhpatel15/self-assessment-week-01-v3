@@ -51,7 +51,8 @@ Tree.prototype.map = function(callBack) {
   var searchTree = function(tree){
 
     // BASE CASE
-    callBack(this.value);
+    // Assign the New Value with the Call Back function to the newValue to the Tree Copy
+    this.newValue = callBack(this.value);
 
     // RECURSIVE CASE
     // Search throught the Nodes of the Tree
@@ -60,13 +61,13 @@ Tree.prototype.map = function(callBack) {
       // If the Node has a Value
       if(this.value !=== undefined){
         // Apply the Call Back function to the Node's Value
-        callBack(value);
+        this.newValue = callBack(value);
       }
 
       // If the Node has a Children Array
       if(this.children.length > 0){
         // Use the Recursive searchTree Function to apply it to the Children Array
-        // Push the Applied Callback values to the New Children Array
+        // Push the Applied Callback values to the New Children Array for the Tree Copy
         this.newChildren.push(searchTree(this.children));
       }
 
