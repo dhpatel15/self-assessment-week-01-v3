@@ -38,7 +38,7 @@ var Tree = function(value) {
 };
 
 
-// Map Method
+// Map Method (Psuedoclassical)
 Tree.prototype.map = function(callBack) {
 
   // Initialize a New Tree (We cannot Modify the Original)
@@ -59,7 +59,7 @@ Tree.prototype.map = function(callBack) {
     for(var i = 0; i < this.children.length; i++){
 
       // If the Node has a Value
-      if(this.value !=== undefined){
+      if(this.value !== undefined){
         // Apply the Call Back function to the Node's Value
         this.newValue = callBack(value);
       }
