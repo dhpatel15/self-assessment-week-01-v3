@@ -62,7 +62,7 @@ Tree.prototype.map = function(callback){
 
   // Check if Child Nodes exist in the Children Array
   if(this.children.length > 0){
-    // Iterate through the children array
+    // Iterate through the Children array
     for(var i = 0; i < this.children.length; i++){
       // Assign each Child Node and Map with Callback Function
       newTree.children.push(this.children[i].map(callback))
