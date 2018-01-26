@@ -65,7 +65,7 @@ Tree.prototype.map = function(callback){
     // Iterate through the Children array
     for(var i = 0; i < this.children.length; i++){
       // Assign each Child Node and Map with Callback Function
-      newTree.children.push(this.children[i].map(callback))
+      mappedTree.children.push(this.children[i].map(callback))
     }
   }
   // Return new instance of Mapped Tree
