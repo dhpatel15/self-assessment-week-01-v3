@@ -41,11 +41,15 @@ var Tree = function(value) {
 // Method: Add Child (Psuedoclassical)
 Tree.prototype.addChild = function(value){
 
-  // Create Node from Tree Constructor {value: 5, children: []}
+  // Create Node from Constructor (Value + Children)
+  // Example: {value: 5, children: []}
   var node = new Tree("value")
 
   // Push Child Node to Tree Children Array
   this.chidren.push(node);
+
+  // Return Node (Value + Children)
+  return node;
 }
 
 
@@ -54,32 +58,28 @@ Tree.prototype.map = function(callback){
 
   // Using Recursion, find the Initial Value and the Iterat through the Children Nodes Array
   // Apply the Recursion to the newly constructed Tree
-  return searchTree = function(value){
 
-    // Mapped Tree Copy
-    var mappedTree = {};
+  // Mapped Tree Copy
+  var mappedTree = {};
 
-
-    // BASE CASE
-    // Run Callback function to the Tree Values
-    // Check if the Node has a Value
-    if(this.value !== undefined){
-      // Apply the Call Back function of the Node's Value
-      mappedTree.push(new Tree(callback(this.value)));
-
-    }
-
-    // RECURSIVE CASE
-    // Iterate through the Children Array to find Nodes
-    // Check if the Node has a Children Array
-    if(this.children.length > 0){
-      // Iterate through the Chilren Array
-      for(var i = 0; i < this.children.length; i++){
-        // Apply the Call Back to the Children Array Values
-        mappedTree.push(searchTree(this.children[i]));
-      }
-    }
-    // Return the Mapped Tree
-    return mappedTree;
+  // BASE CASE
+  // Run Callback function to the Tree Values
+  // Check if the Node has a Value
+  if(this.value !== undefined){
+    // Apply the Call Back function of the Node's Value
+    mappedTree[i] = new Tree(callback(this.value));
   }
+
+  // RECURSIVE CASE
+  // Iterate through the Children Array to find Nodes
+  // Check if the Node has a Children Array
+  if(this.children.length > 0){
+    // Iterate through the Chilren Array
+    for(var i = 0; i < this.children.length; i++){
+      // Apply the Call Back to the Children Array Values
+      this.children.push(map(callback(this.children[i])));
+    }
+  }
+  // Return the Mapped Tree
+  return mappedTree;
 };
