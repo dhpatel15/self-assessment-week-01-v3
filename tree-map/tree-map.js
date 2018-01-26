@@ -65,7 +65,7 @@ Tree.prototype.map = function(callback){
     // Check if the Node has a Value
     if(this.value !== undefined){
       // Apply the Call Back function of the Node's Value
-      this.value = callback(this.value);
+      mappedTree.push(new Tree(callback(this.value)));
 
     }
 
@@ -76,7 +76,7 @@ Tree.prototype.map = function(callback){
       // Iterate through the Chilren Array
       for(var i = 0; i < this.children.length; i++){
         // Apply the Call Back to the Children Array Values
-        this.children.push(searchTree(this.children[i]));
+        mappedTree.push(searchTree(this.children[i]));
       }
     }
     // Return the Mapped Tree
