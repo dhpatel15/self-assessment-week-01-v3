@@ -43,7 +43,7 @@ Tree.prototype.addChild = function(value){
 
   // Create Node from Constructor (Value + Children)
   // Example: {value: 5, children: []}
-  var node = new Tree("value")
+  var node = new Tree(value)
 
   // Push Child Node to Tree Children Array
   this.chidren.push(node);
