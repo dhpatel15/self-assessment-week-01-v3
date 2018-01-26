@@ -31,48 +31,55 @@
   */
 
 
-
+// New Tree Constructor
 var Tree = function(value) {
   this.value = value;
   this.children = [];
 };
 
 
-// Map Method (Psuedoclassical)
-Tree.prototype.map = function(callBack) {
+// Method: Add Child (Psuedoclassical)
+Tree.prototype.addChild = function(value){
 
-  // Initialize a New Tree (We cannot Modify the Original)
-  // Create New Tree using the New Construtor Function
-  var newTree = new Tree('newTree');
+  // Create Node from Tree Constructor {value: 5, children: []}
+  var node = new Tree("value")
+
+  // Push Child Node to Tree Children Array
+  this.chidren.push(node);
+}
+
+
+// Method: Map (Psuedoclassical)
+Tree.prototype.map = function(callback){
 
   // Using Recursion, find the Initial Value and the Iterat through the Children Nodes Array
   // Apply the Recursion to the newly constructed Tree
-  var searchTree = function(newTree){
+  return searchTree = function(value){
+
+    // Mapped Tree Copy
+    var mappedTree = {};
+
 
     // BASE CASE
-    // Assign the New Value with the Call Back function to the value to the Tree Copy
+    // Run Callback function to the Tree Values
     // Check if the Node has a Value
     if(this.value !== undefined){
-      // Apply the Call Back function of the Node's Value to New Tree
-      newTree.value = callBack(this.value);
+      // Apply the Call Back function of the Node's Value
+      tree.value = callback(this.value);
+
     }
 
     // RECURSIVE CASE
     // Iterate through the Children Array to find Nodes
     // Check if the Node has a Children Array
     if(this.children.length > 0){
+      // Iterate through the Chilren Array
       for(var i = 0; i < this.children.length; i++){
-        // Use the Recursive searchTree Function to apply it to the Children Array
-        // Push the Applied Callback values to the New Children Array to New Tree
-        newTree.children.push(searchTree(this.children));
+        // Apply the Call Back to the Children Array Values
+        tree.children.push(searchTree(this.children[i]));
       }
     }
-    // Return the New Tree (The Interpretor does it for the original function,
-    // but does it do it within the Recursive case?)
-    return newTree;
+    // Return the Mapped Tree
+    return mappedTree;
   }
 };
-
-
-// Mostly Complete: I believe the Recursive function works, but there seems to
-// be something wrong with the implementation of my constructor function
