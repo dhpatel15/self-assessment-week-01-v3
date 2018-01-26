@@ -45,7 +45,7 @@ Tree.prototype.addChild = function(value){
   var node = new Tree(value);
 
   // Push Child Node to Tree Children Array
-  this.chidren.push(node);
+  this.children.push(node);
 
   // Return Node (Value + Children)
   return node;
@@ -57,7 +57,6 @@ Tree.prototype.map = function(callback){
 
   // Create New Tree and apply Callback Function
   var mappedTree = new Tree(callback(this.value))
-
 
   // Check if Child Nodes exist in the Children Array
   if(this.children.length > 0){
