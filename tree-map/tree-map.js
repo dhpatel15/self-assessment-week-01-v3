@@ -50,36 +50,24 @@ Tree.prototype.addChild = function(value){
 
   // Return Node (Value + Children)
   return node;
-}
+};
 
 
 // Method: Map (Psuedoclassical)
 Tree.prototype.map = function(callback){
 
-  // Using Recursion, find the Initial Value and the Iterat through the Children Nodes Array
-  // Apply the Recursion to the newly constructed Tree
+  // Create New Tree and apply Callback Function
+  var mappedTree = new Tree(callback(this.value))
 
-  // Mapped Tree Copy
-  var mappedTree = {};
 
-  // BASE CASE
-  // Run Callback function to the Tree Values
-  // Check if the Node has a Value
-  if(this.value !== undefined){
-    // Apply the Call Back function of the Node's Value
-    mappedTree[i] = new Tree(callback(this.value));
-  }
-
-  // RECURSIVE CASE
-  // Iterate through the Children Array to find Nodes
-  // Check if the Node has a Children Array
+  // Check if Child Nodes exist in the Children Array
   if(this.children.length > 0){
-    // Iterate through the Chilren Array
+    // Iterate through the children array
     for(var i = 0; i < this.children.length; i++){
-      // Apply the Call Back to the Children Array Values
-      this.children.push(map(callback(this.children[i])));
+      // Assign each Child Node and Map with Callback Function
+      newTree.children.push(this.children[i].map(callback))
     }
   }
-  // Return the Mapped Tree
+  // Return new instance of Mapped Tree
   return mappedTree;
 };
